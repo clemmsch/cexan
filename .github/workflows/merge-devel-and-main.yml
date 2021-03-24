@@ -15,22 +15,13 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: 🎭 Creating Pull Request
-        id: open-pr
-        uses: repo-sync/pull-request@v2.6
+        uses: gha-utilities/init-pull-request@v0.2.4
         with:
-          source_branch: "devel"
-          destination_branch: "main"
-          pr_title: "Automatic Pull Request - Merging devel -> main"
-          pr_body: ":rocket: It is that time again! The branch 'devel' is being be merged into 'main'. Let's hope that devel is stable :slightly_smiling_face:"
-          # pr_reviewer: "peachmage, somekindofpanem, aemreaydin, BrettBelanger"
-          pr_label: automerge
-          pr_allow_empty: true
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: 🧮 Output Pull Request Details
-        run: |
-          echo Pull-Request-URL =>
-          echo ${{steps.open-pr.outputs.pr_url}}
-          echo Pull-Request-Number =>
-          echo ${{steps.open-pre.outputs.pr_number}}
-
+          verbose: true
+          pull_request_token: ${{ secrets.GITHUB_TOKEN }}
+          head: 'devel'
+          base: main
+          title: 'Updates site files from latest Actions build'
+          body: >
+            Perhaps a multi-line description
+            about latest features and such.
