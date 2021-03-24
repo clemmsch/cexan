@@ -21,8 +21,8 @@ jobs:
         with:
           title: Automatic Merge of Devel and Main
           body: This action was performed using GitHub Actions - Please do not interfer. This is scheduled to happen every second week.
-          branch: devel
-          base: main
+          branch: main
+          base: devel
           delete-branch: false
           committer: Intrinsic <noreply@github.com> 
           labels: automerge # Needed so that it will merge automatically
