@@ -21,7 +21,7 @@ jobs:
           source_branch: "devel"
           destination_branch: "main"
           pr_title: "Automatic Pull Request - Merging devel -> main"
-          pr_body: ":rocket: It is that time again! The branch 'devel' is being be merged into 'main'. Let's hope that devel is stable :slightly_smiling_face: . :exclamation: Please do not interfer with this pull request! "
+          pr_body: ":rocket: It is that time again! The branch 'devel' is being be merged into 'main'. Let's hope that devel is stable :slightly_smiling_face:"
           pr_reviewer: "peachmage, somekindofpanem, aemreaydin, BrettBelanger"
           pr_label: automerge
           pr_allow_empty: true
@@ -29,8 +29,8 @@ jobs:
 
       - name: 🧮 Output Pull Request Details
         run: |
-          echo Pull-Request-URL
+          echo Pull-Request-URL =>
           echo ${{steps.open-pr.outputs.pr_url}}
-          echo Pull-Request-Number
+          echo Pull-Request-Number =>
           echo ${{steps.open-pre.outputs.pr_number}}
 
