@@ -25,7 +25,7 @@ jobs:
           pr_allow_empty: true
           github_token: ${{ secrets.GITHUB_TOKEN }}
       - name: 🧮 Output Pull Request Details
-          run: echo Hello World
+          #run: echo Hello World
 
           #run: |
           #  echo Pull-Request-URL
