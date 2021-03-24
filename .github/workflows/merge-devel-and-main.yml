@@ -26,8 +26,7 @@ jobs:
           delete-branch: false
           committer: Intrinsic <noreply@github.com> 
           labels: automerge # Needed so that it will merge automatically
-        
-        - name: Check outputs
+      - name: Check outputs
         run: |
           echo "Pull Request Number - ${{ steps.cpr.outputs.pull-request-number }}"
           echo "Pull Request URL - ${{ steps.cpr.outputs.pull-request-url }}"
