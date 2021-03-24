@@ -16,18 +16,12 @@ jobs:
 
 
       - name: 🎭 Creating Pull Request
-        id: cpr
-        uses: peter-evans/create-pull-request@v3
-        with:
-          title: Automatic Merge of Devel and Main
-          body: This action was performed using GitHub Actions - Please do not interfer. This is scheduled to happen every second week.
-          branch: devel
-          base: main
-          delete-branch: false
-          committer: Intrinsic <noreply@github.com> 
-          labels: automerge # Needed so that it will merge automatically
-      - name: Check outputs
-        run: |
-          echo "Pull Request Number - ${{ steps.cpr.outputs.pull-request-number }}"
-          echo "Pull Request URL - ${{ steps.cpr.outputs.pull-request-url }}"
+        uses: vsoch/pull-request-action@1.0.6
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PULL_REQUEST_FROM_BRANCH: devel
+          PULL_REQUEST_BODY: This is an automated Pull Request that was created using GitHub Actions | This runs every 2 weeks
+          PULL_REQUEST_TITLE: Automated Pull Request to merge Devel -> Main
+          MAINTAINER_CANT_MODIFY: true
+          PULL_REQUEST_BRANCH: main
 
