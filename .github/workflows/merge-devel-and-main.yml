@@ -13,16 +13,21 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-
-
       - name: 🎭 Creating Pull Request
-        uses: vsoch/pull-request-action@1.0.6
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          PULL_REQUEST_FROM_BRANCH: devel
-          BRANCH_PREFIX: devel
-          PULL_REQUEST_BODY: This is an automated Pull Request that was created using GitHub Actions | This runs every 2 weeks
-          PULL_REQUEST_TITLE: Automated Pull Request to merge Devel -> Main
-          MAINTAINER_CANT_MODIFY: true
-          PULL_REQUEST_BRANCH: main
+        id: open-pr
+        uses: repo-sync/pull-request@v2
+        with:
+          source_branch: "devel"
+          pr_title: "Automatic Pull Request - Merging devel -> main"
+          pr_body: ":rocket: It is that time again! The branch 'devel' is being be merged into 'main'. Let's hope that devel is stable :slightly_smiling_face: . :exclamation: Please do not interfer with this pull request! "
+          pr_reviewer: "peachmage, somekindofpanem, aemreaydin, BrettBelanger"
+          pr_label: automerge
+          pr_allow_empty: true
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+      - name: 🧮 Output Pull Request Details
+          run: |
+            echo "Pull-Request-URL"
+            echo ${{steps.open-pr.outputs.pr_url}}
+            echo "Pull-Request-Number"
+            echo ${{steps.open-pre.outputs.pr_number}}
 
