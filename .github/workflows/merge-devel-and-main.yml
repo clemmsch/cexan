@@ -13,6 +13,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+
       - name: 🎭 Creating Pull Request
         id: open-pr
         uses: repo-sync/pull-request@v2.6
@@ -24,12 +25,11 @@ jobs:
           pr_label: automerge
           pr_allow_empty: true
           github_token: ${{ secrets.GITHUB_TOKEN }}
-      - name: 🧮 Output Pull Request Details
-          run: echo Hello World
 
-          #run: |
-          #  echo Pull-Request-URL
-          #  echo ${{steps.open-pr.outputs.pr_url}}
-          #  echo Pull-Request-Number
-          #  echo ${{steps.open-pre.outputs.pr_number}}
+      - name: 🧮 Output Pull Request Details
+        run: |
+          echo Pull-Request-URL
+          echo ${{steps.open-pr.outputs.pr_url}}
+          echo Pull-Request-Number
+          echo ${{steps.open-pre.outputs.pr_number}}
 
