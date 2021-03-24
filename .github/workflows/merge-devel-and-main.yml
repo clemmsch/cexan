@@ -8,7 +8,7 @@ on:
     branches: [ main ]
 
 jobs:
-  build:
+  run:
     runs-on: ubuntu-latest
 
     steps:
@@ -19,6 +19,7 @@ jobs:
         uses: repo-sync/pull-request@v2.6
         with:
           source_branch: "devel"
+          destination_branch: "main"
           pr_title: "Automatic Pull Request - Merging devel -> main"
           pr_body: ":rocket: It is that time again! The branch 'devel' is being be merged into 'main'. Let's hope that devel is stable :slightly_smiling_face: . :exclamation: Please do not interfer with this pull request! "
           pr_reviewer: "peachmage, somekindofpanem, aemreaydin, BrettBelanger"
