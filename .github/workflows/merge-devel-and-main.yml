@@ -15,13 +15,12 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: 🎭 Creating Pull Request
-        uses: gha-utilities/init-pull-request@v0.2.4
-        with:
-          verbose: true
-          pull_request_token: ${{ secrets.GITHUB_TOKEN }}
-          head: 'devel'
-          base: main
-          title: 'Updates site files from latest Actions build'
-          body: >
-            Perhaps a multi-line description
-            about latest features and such.
+        uses: vsoch/pull-request-action@1.0.6
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH_PREFIX: ""
+          PULL_REQUEST_BRANCH: "main"
+          PULL_REQUEST_FROM_BRANCH: "devel"
+          PULL_REQUEST_BODY: "Hi"
+          PULL_REQUEST_TITLE: "Hello"
+          
