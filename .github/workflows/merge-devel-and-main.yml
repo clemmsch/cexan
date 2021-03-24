@@ -16,6 +16,7 @@ jobs:
 
 
       - name: 🎭 Creating Pull Request
+        id: cpr
         uses: peter-evans/create-pull-request@v3
         with:
           title: Automatic Merge of Devel and Main
@@ -25,3 +26,9 @@ jobs:
           delete-branch: false
           committer: Intrinsic <noreply@github.com> 
           labels: automerge # Needed so that it will merge automatically
+        
+        - name: Check outputs
+        run: |
+          echo "Pull Request Number - ${{ steps.cpr.outputs.pull-request-number }}"
+          echo "Pull Request URL - ${{ steps.cpr.outputs.pull-request-url }}"
+
