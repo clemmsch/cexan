@@ -13,8 +13,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-        with:
-        fetch_depth: 0
+
 
       - name: 🎭 Creating Pull Request
         uses: peter-evans/create-pull-request@v3
