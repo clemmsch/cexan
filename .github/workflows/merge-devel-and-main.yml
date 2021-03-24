@@ -25,9 +25,7 @@ jobs:
           pr_allow_empty: true
           github_token: ${{ secrets.GITHUB_TOKEN }}
       - name: 🧮 Output Pull Request Details
-          run: |
-            echo Add other actions to build,
-            echo test, and deploy your project.
+          run: echo Hello World
 
           #run: |
           #  echo Pull-Request-URL
