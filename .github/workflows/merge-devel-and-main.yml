@@ -13,12 +13,11 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+        with:
+        fetch_depth: 0
+
       - name: 🎭 Creating Pull Request
         uses: peter-evans/create-pull-request@v3
-        run: |
-          echo "Pull Request Number - ${{ steps.cpr.outputs.pull-request-number }}"
-          echo "Pull Request URL - ${{ steps.cpr.outputs.pull-request-url }}"
-
         with:
           title: Automatic Merge of Devel and Main
           body: This action was performed using GitHub Actions - Please do not interfer. This is scheduled to happen every second week.
