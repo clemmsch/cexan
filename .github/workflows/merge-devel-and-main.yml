@@ -22,7 +22,7 @@ jobs:
           destination_branch: "main"
           pr_title: "Automatic Pull Request - Merging devel -> main"
           pr_body: ":rocket: It is that time again! The branch 'devel' is being be merged into 'main'. Let's hope that devel is stable :slightly_smiling_face:"
-          pr_reviewer: "peachmage, somekindofpanem, aemreaydin, BrettBelanger"
+          # pr_reviewer: "peachmage, somekindofpanem, aemreaydin, BrettBelanger"
           pr_label: automerge
           pr_allow_empty: true
           github_token: ${{ secrets.GITHUB_TOKEN }}
