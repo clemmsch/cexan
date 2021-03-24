@@ -8,20 +8,19 @@ on:
     branches: [ main ]
 
 jobs:
-  build:
+  run:
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v2
 
-
       - name: 🎭 Creating Pull Request
-        uses: peter-evans/create-pull-request@v3
-        with:
-          title: Automatic Merge of Devel and Main
-          body: This action was performed using GitHub Actions - Please do not interfer. This is scheduled to happen every second week.
-          branch: devel
-          base: main
-          delete-branch: false
-          committer: Intrinsic <noreply@github.com> 
-          labels: automerge # Needed so that it will merge automatically
+        uses: vsoch/pull-request-action@1.0.6
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH_PREFIX: ""
+          PULL_REQUEST_BRANCH: "main"
+          PULL_REQUEST_FROM_BRANCH: "devel"
+          PULL_REQUEST_BODY: "Hi"
+          PULL_REQUEST_TITLE: "Hello"
+          
