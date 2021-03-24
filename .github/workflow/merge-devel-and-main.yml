@@ -1,0 +1,21 @@
+name: 🔥 Merge Devel and Main
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🎭 Creating Pull Request
+        uses: peter-evans/create-pull-request@v3
+        run: |
+          echo "Pull Request Number - ${{ steps.cpr.outputs.pull-request-number }}"
+          echo "Pull Request URL - ${{ steps.cpr.outputs.pull-request-url }}"
+
+        with:
+          title: Automatic Merge of Devel and Main
+          body: This action was performed using GitHub Actions - Please do not interfer. This is scheduled to happen every second week.
+          branch: devel
+          base: main
+          delete-branch: false
+          committer: Intrinsic <noreply@github.com> 
+          labels: automerge # Needed so that it will merge automatically
