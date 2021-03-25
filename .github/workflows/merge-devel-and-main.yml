@@ -3,7 +3,7 @@ name: 🔥 Merge Devel and Main
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
-    branches: [ main ]
+    branches: [ main devel ]
   pull_request:
     branches: [ main ]
 
@@ -11,10 +11,16 @@ jobs:
   issue:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-      - uses: JasonEtco/create-an-issue@v2
+      - uses: actions/checkout@v2
+
+      - name: 🎭 Creating Pull Request
+        uses: vsoch/pull-request-action@1.0.6
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          filename: .github/ISSUE_TEMPLATE/meeting-notes.md
+          BRANCH_PREFIX: ""
+          PULL_REQUEST_BRANCH: "main"
+          PULL_REQUEST_FROM_BRANCH: "devel"
+          PULL_REQUEST_BODY: "Hi nr. 2"
+          PULL_REQUEST_TITLE: "Hello"
+
           
